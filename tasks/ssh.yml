@@ -1,0 +1,44 @@
+---
+- name: ssh | create ssh dir
+  file:
+    path: "~{{ item.user }}/.ssh"
+    state: directory
+  with_items: "{{ users_ssh_config_hosts }}"
+
+- name: ssh | authorized keys
+  authorized_key:
+    user: "{{ item.0.name }}"
+    key: "{{ item.1 }}"
+  with_subelements:
+    - "{{ users }}"
+    - ssh_keys
+
+- name: ssh | config hosts
+  template:
+    src: ssh-config.j2
+    dest: "~{{ item.user }}/.ssh/config"
+    mode: 0644
+    owner: "{{ item.user }}"
+    group: "{{ item.user }}"
+  with_items: "{{ users_ssh_config_hosts }}"
+
+- name: ssh | public rsa keys
+  copy:
+    content: "{{ item.1.rsa_private }}"
+    dest: "~{{ item.0.user }}/.ssh/{{ item.1.name }}_rsa"
+    mode: 0600
+    owner: "{{ item.0.user }}"
+    group: "{{ item.0.user }}"
+  when: item.1.rsa_private
+  with_subelements:
+    - "{{ users_ssh_config_hosts }}"
+    - hosts
+
+- name: ssh | known hosts
+  shell: "ssh-keyscan -H {{ item.1.name }} >> ~{{ item.0.user }}/.ssh/known_hosts"
+  become: yes
+  become_user: "{{ item.0.user }}"
+  when: item.1.rsa_private
+  with_subelements:
+    - "{{ users_ssh_config_hosts }}"
+    - hosts

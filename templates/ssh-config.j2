@@ -1,0 +1,11 @@
+{% for host in item.hosts %}
+Host {{ host.name }}
+{% if host.rsa_private %}
+IdentityFile "~/.ssh/{{ host.name }}_rsa"
+{% endif %}
+{% if host.has_key("options") %}
+{% for param, val in host["options"].iteritems() %}
+{{ param }} {{ val }}
+{% endfor %}
+{% endif %}
+{% endfor %}

@@ -1,0 +1,22 @@
+---
+- name: create|groups
+  group:
+    name: "{{ item.name }}"
+    system: "{{ item.system|default(omit) }}"
+    gid: "{{ item.gid|default(omit) }}"
+    state: present
+  with_items: "{{ users_groups }}"
+
+- name: create|users
+  user:
+    name: "{{ item.name }}"
+    groups: "{{','.join(item.groups) }}"
+    append: "{{ item.append|default(omit) }}"
+    password: "{{ item.pass|default(omit) }}"
+    comment: "{{ item.comment|default(omit) }}"
+    shell: "{{ item.shell|default(omit) }}"
+    uid: "{{ item.uid|default(omit) }}"
+    home: "{{ item.home|default(omit) }}"
+    system: "{{ item.system|default(omit) }}"
+    state: present
+  with_items: "{{ users }}"

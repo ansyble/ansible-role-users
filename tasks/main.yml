@@ -1,0 +1,13 @@
+---
+- include: create.yml
+  tags: [users, users-create]
+
+- include: ssh.yml
+  tags: [users, users-ssh]
+
+- include: zshenv.yml
+  tags: [users, users-zshenv]
+
+- include: sudoers.yml
+  when: sudoers is defined
+  tags: [users, users-sudoers]

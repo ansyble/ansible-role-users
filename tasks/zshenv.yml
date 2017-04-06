@@ -1,0 +1,9 @@
+---
+- name: zshenv | file
+  copy:
+    content: "{{ item.zshenv }}"
+    dest: "~{{ item.name }}/.zshenv"
+    owner: "{{ item.name }}"
+    group: "{{ item.name }}"
+  when: "{{ item.zshenv is defined }}"
+  with_items: "{{ users }}"

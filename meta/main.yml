@@ -1,0 +1,16 @@
+galaxy_info:
+  author: mongkok
+  company: defocus.io
+  description: Installing and configuring users and groups
+  min_ansible_version: 1.4
+  license: MIT
+  platforms:
+  - name: Ubuntu
+    versions:
+    - all
+  categories:
+  - users
+  - groups
+  - sudoers
+
+dependencies: []
