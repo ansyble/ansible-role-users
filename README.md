@@ -39,9 +39,9 @@ users_ssh_config_hosts:
   - user: mongkok
     hosts:
       - name: github.com
-        rsa_private: "{{github_rsa_private}}"
+        rsa_private: "{{rsa_github}}"
     hosts:
       - name: me
         host: defocus.io
-        rsa_private: "{{defocus_rsa_private}}"
+        rsa_private: "{{rsa_defocus}}"
 ```
