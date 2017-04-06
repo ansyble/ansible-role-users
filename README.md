@@ -24,10 +24,24 @@ users:
     groups: ["admin"]
     append: no
     shell: /bin/zsh
-    home: "/home/mongkok"
+    home: /home/mongkok
     system: yes
     ssh_keys:
       - "ssh-rsa ..."
     zshenv: |
       export FOO=bar
+```
+
+**Config ssh**
+
+```yml
+users_ssh_config_hosts:
+  - user: mongkok
+    hosts:
+      - name: github.com
+        rsa_private: "{{github_rsa_private}}"
+    hosts:
+      - name: me
+        host: defocus.io
+        rsa_private: "{{defocus_rsa_private}}"
 ```
