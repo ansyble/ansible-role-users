@@ -1,6 +1,14 @@
 [ ![Image](https://cloud.githubusercontent.com/assets/5514990/21614528/5c56d772-d20c-11e6-8670-577f2dd7ca9b.png "Ansible") ](https://www.ansible.com/ "Ansible")
 
+[![Ansible Role](https://img.shields.io/ansible/role/16907.svg)](https://galaxy.ansible.com/ansyble/users/)
+
 [Ansible](http://www.ansible.com) role to deploy users and groups.
+
+### Install
+
+```sh
+ansible-galaxy install ansyble.users
+```
 
 ### Usage
 
