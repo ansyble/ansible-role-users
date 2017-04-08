@@ -1,0 +1,26 @@
+---
+users_groups:
+  - name: admin
+    gid: 5000
+    system: no
+
+users:
+  - name: test
+    sudoer: yes
+    uid: 1008
+    comment: hello world
+    groups: ["admin"]
+    append: no
+    shell: /bin/zsh
+    home: /home/test
+    system: yes
+    ssh_keys:
+      - "ssh-rsa ..."
+    zshenv: |
+      export TEST=1
+
+users_ssh_config_hosts:
+  - user: test
+    hosts:
+      - name: github.com
+        rsa_private: "..."
