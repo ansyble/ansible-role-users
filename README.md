@@ -41,7 +41,7 @@ users:
       export FOO=bar
 ```
 
-**Config ssh**
+**SSH config**
 
 ```yml
 users_ssh_config_hosts:
