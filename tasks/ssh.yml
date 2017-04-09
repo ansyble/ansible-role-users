@@ -25,7 +25,7 @@
 - name: ssh | public rsa keys
   copy:
     content: "{{ item.1.rsa_private }}"
-    dest: "~{{ item.0.user }}/.ssh/{{ item.1.name }}_rsa"
+    dest: "~{{ item.0.user }}/.ssh/id_rsa.{{ item.1.name }}"
     mode: 0600
     owner: "{{ item.0.user }}"
     group: "{{ item.0.user }}"
