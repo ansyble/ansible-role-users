@@ -48,5 +48,5 @@ users_ssh_config_hosts:
   - user: me
     hosts:
       - name: github.com
-        rsa_private: "{{rsa_github}}"
+        rsa_private: "{{ rsa_github }}"
 ```
