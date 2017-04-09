@@ -1,13 +1,11 @@
 ---
 users_groups:
   - name: admin
-    gid: 5000
     system: no
 
 users:
   - name: test
     sudoer: yes
-    uid: 1008
     comment: hello world
     groups: ["admin"]
     append: no
