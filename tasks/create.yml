@@ -10,7 +10,7 @@
 - name: create|users
   user:
     name: "{{ item.name }}"
-    groups: "{{','.join(item.groups) }}"
+    groups: "{{','.join(item.groups|default([])) }}"
     append: "{{ item.append|default(omit) }}"
     password: "{{ item.pass|default(omit) }}"
     comment: "{{ item.comment|default(omit) }}"
