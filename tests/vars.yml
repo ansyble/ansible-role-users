@@ -17,6 +17,8 @@ users:
     zshenv: |
       export TEST=1
 
+  - name: standalone
+
 users_ssh_config_hosts:
   - user: test
     hosts:
