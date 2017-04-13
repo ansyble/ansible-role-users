@@ -12,6 +12,7 @@
   with_subelements:
     - "{{ users }}"
     - ssh_keys
+    - skip_missing: yes
 
 - name: ssh | config hosts
   template:
