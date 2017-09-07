@@ -3,7 +3,7 @@ Host {{ host.name }}
 {% if host.rsa_private %}
 IdentityFile "~/.ssh/id_rsa.{{ host.name }}"
 {% endif %}
-{% if host.has_key("options") %}
+{% if host.options is defined %}
 {% for param, val in host["options"].iteritems() %}
 {{ param }} {{ val }}
 {% endfor %}
