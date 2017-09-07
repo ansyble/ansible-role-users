@@ -5,5 +5,5 @@
     dest: "~{{ item.name }}/.zshenv"
     owner: "{{ item.name }}"
     group: "{{ item.name }}"
-  when: "{{ item.zshenv is defined }}"
+  when: item.zshenv is defined
   with_items: "{{ users }}"
