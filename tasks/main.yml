@@ -1,13 +1,12 @@
 ---
-- include: create.yml
+- import_tasks: create.yml
   tags: [users, users-create]
 
-- include: ssh.yml
+- import_tasks: ssh.yml
   tags: [users, users-ssh]
 
-- include: zshenv.yml
+- import_tasks: zshenv.yml
   tags: [users, users-zshenv]
 
-- include: sudoers.yml
-  when: sudoers is defined
+- import_tasks: sudoers.yml
   tags: [users, users-sudoers]
