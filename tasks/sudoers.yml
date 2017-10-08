@@ -7,5 +7,5 @@
     regexp: "{{ item.name }} ALL=NOPASSWD:ALL"
     create: yes
   become: true
-  when: item.sudoer
+  when: item.sudoer is defined and item.sudoer
   with_items: "{{ users }}"
